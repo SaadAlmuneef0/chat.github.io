@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbox with GPT</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chat-icon" id="chat-icon">
+        <span class="material-icons">chat</span>
+    </div>
+
+    <div class="chatbox" id="chatbox">
+        <div class="chatbox-header">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwKqWKPwtSFzq42wcMUpgdDCSqGwdKJIZ7sg&s" alt="AI" class="ai-image">
+            <span>Chat with GPT</span>
+            <button class="material-icons" id="close-chat">close</button>
+        </div>
+        <div class="chatbox-content" id="chatbox-content">
+            <div class="messages" id="messages"></div>
+            <div class="suggestions" id="suggestions"></div>
+        </div>
+        <div class="chatbox-input">
+            <input type="text" id="chat-input" placeholder="Type a message...">
+            <button id="send-btn"><span class="material-icons">send</span></button>
+        </div>
+        <br>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
