@@ -14,10 +14,9 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Chatbox positioning */
 .chatbox {
   position: fixed;
-  bottom: 80px; /* Adjust if necessary */
+  bottom: 80px;
   right: 20px;
   width: 400px;
   background-color: white;
@@ -40,8 +39,8 @@ body {
  border-radius: 5px;
  }
 
-.chatbox-header {
-  background-color: #1a1a1a; /* Default color */
+ .chatbox-header {
+  background-color: #1a1a1a;
   color: white;
   padding: 10px;
   border-top-left-radius: 8px;
@@ -99,8 +98,8 @@ body {
 }
 
 .message.user {
-  background-color: #034892; /* Default background color */
-  color: white; /* Default text color */
+  background-color: #034892;
+  color: white;
   align-self: flex-end;
 }
 
