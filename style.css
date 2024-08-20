@@ -40,8 +40,8 @@ body {
  border-radius: 5px;
  }
 
- .chatbox-header {
-  background-color: #1a1a1a;
+.chatbox-header {
+  background-color: #1a1a1a; /* Default color */
   color: white;
   padding: 10px;
   border-top-left-radius: 8px;
