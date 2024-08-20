@@ -123,7 +123,8 @@ window.onload = function() {
     document.querySelectorAll('.message.bot').forEach(el => el.style.color = botTextColor);
     
     // Apply background image if provided
-    if (chatbotImage) {
-        chatbox.style.backgroundImage = `url(${chatbotImage})`;
+    const aiImage = document.querySelector('.ai-image');
+    if (aiImage && chatbotImage) {
+        aiImage.src = chatbotImage;
     }
 };
