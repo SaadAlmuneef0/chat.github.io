@@ -32,7 +32,7 @@ function appendMessage(content, className) {
 
 // Function to call GPT API
 async function fetchGPTResponse(userInput) {
-    const apiKey = "paste-your-api-key";
+    const apiKey = "sk-QuBYZggoTQJUwvIhf0q7xLEM_hhR4SnfhVXCefs6lIT3BlbkFJaPZ84IxeSxzqsCcFpS52OaWQQ7HvRzwZ4Ipc-h06gA";
     const apiUrl = "https://api.openai.com/v1/engines/davinci-codex/completions";
     const response = await fetch(apiUrl, {
         method: "POST",
