@@ -63,16 +63,9 @@ sendBtn.addEventListener('click', async () => {
 
     try {
         const botResponse = await fetchGPTResponse(userInput);
-        // Update the last bot message with the actual response
-        const lastBotMessage = document.querySelector('.message.bot:last-child');
-        if (lastBotMessage) {
-            lastBotMessage.textContent = botResponse;
-        }
+        document.querySelector('.message.bot').textContent = botResponse;
     } catch (error) {
-        const lastBotMessage = document.querySelector('.message.bot:last-child');
-        if (lastBotMessage) {
-            lastBotMessage.textContent = "Error: Unable to connect to GPT.";
-        }
+        document.querySelector('.message.bot').textContent = "Error: Unable to connect to GPT.";
         console.error("Error fetching GPT response:", error);
     }
 });
@@ -110,27 +103,3 @@ suggestions.forEach(suggestionText => {
     const suggestionElement = createSuggestion(suggestionText);
     suggestionsContainer.appendChild(suggestionElement);
 });
-
-// Apply customizations from query parameters
-window.onload = function() {
-    const params = new URLSearchParams(window.location.search);
-    const headerColor = params.get('headerColor') || '#1a1a1a'; // Default to existing color
-    const userTextColor = params.get('userTextColor') || '#000000';
-    const botTextColor = params.get('botTextColor') || '#000000';
-    const chatbotImage = params.get('chatbotImage') || '';
-
-    // Apply header color to the header
-    document.querySelector('.chatbox-header').style.backgroundColor = headerColor;
-
-    // Apply text colors to user messages
-    document.querySelectorAll('.message.user').forEach(el => el.style.color = userTextColor);
-    
-    // Apply text colors to bot messages
-    document.querySelectorAll('.message.bot').forEach(el => el.style.color = botTextColor);
-    
-    // Apply chatbot image if provided
-    const aiImage = document.querySelector('.ai-image');
-    if (aiImage && chatbotImage) {
-        aiImage.src = chatbotImage;
-    }
-};
