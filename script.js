@@ -105,17 +105,20 @@ suggestions.forEach(suggestionText => {
 });
 
 // Apply customizations from query parameters
+// Apply customizations from query parameters
 window.onload = function() {
     const params = new URLSearchParams(window.location.search);
-    const headerColor = params.get('headerColor') || '#ffffff';
+    const headerColor = params.get('headerColor') || '#1a1a1a'; // Default to existing color
     const userTextColor = params.get('userTextColor') || '#000000';
     const botTextColor = params.get('botTextColor') || '#000000';
     const chatbotImage = params.get('chatbotImage') || '';
 
-    // Apply styles to chatbox
-    chatbox.style.backgroundColor = headerColor;
-    document.querySelector('.user-message').style.color = userTextColor;
-    document.querySelector('.bot-message').style.color = botTextColor;
+    // Apply header color
+    document.querySelector('.chatbox-header').style.backgroundColor = headerColor;
+
+    // Apply text colors
+    document.querySelectorAll('.message.user').forEach(el => el.style.color = userTextColor);
+    document.querySelectorAll('.message.bot').forEach(el => el.style.color = botTextColor);
     
     // Apply background image if provided
     if (chatbotImage) {
