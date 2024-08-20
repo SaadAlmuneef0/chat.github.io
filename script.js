@@ -63,9 +63,16 @@ sendBtn.addEventListener('click', async () => {
 
     try {
         const botResponse = await fetchGPTResponse(userInput);
-        document.querySelector('.message.bot').textContent = botResponse;
+        // Update the last bot message with the actual response
+        const lastBotMessage = document.querySelector('.message.bot:last-child');
+        if (lastBotMessage) {
+            lastBotMessage.textContent = botResponse;
+        }
     } catch (error) {
-        document.querySelector('.message.bot').textContent = "Error: Unable to connect to GPT.";
+        const lastBotMessage = document.querySelector('.message.bot:last-child');
+        if (lastBotMessage) {
+            lastBotMessage.textContent = "Error: Unable to connect to GPT.";
+        }
         console.error("Error fetching GPT response:", error);
     }
 });
@@ -105,7 +112,6 @@ suggestions.forEach(suggestionText => {
 });
 
 // Apply customizations from query parameters
-// Apply customizations from query parameters
 window.onload = function() {
     const params = new URLSearchParams(window.location.search);
     const headerColor = params.get('headerColor') || '#1a1a1a'; // Default to existing color
@@ -122,8 +128,8 @@ window.onload = function() {
     // Apply text colors to bot messages
     document.querySelectorAll('.message.bot').forEach(el => el.style.color = botTextColor);
     
-    // Apply background image if provided
-    const aiImage = document.querySelector('.chatbox img');
+    // Apply chatbot image if provided
+    const aiImage = document.querySelector('.ai-image');
     if (aiImage && chatbotImage) {
         aiImage.src = chatbotImage;
     }
