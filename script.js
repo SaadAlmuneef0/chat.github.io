@@ -103,3 +103,22 @@ suggestions.forEach(suggestionText => {
     const suggestionElement = createSuggestion(suggestionText);
     suggestionsContainer.appendChild(suggestionElement);
 });
+
+// Apply customizations from query parameters
+window.onload = function() {
+    const params = new URLSearchParams(window.location.search);
+    const headerColor = params.get('headerColor') || '#ffffff';
+    const userTextColor = params.get('userTextColor') || '#000000';
+    const botTextColor = params.get('botTextColor') || '#000000';
+    const chatbotImage = params.get('chatbotImage') || '';
+
+    // Apply styles to chatbox
+    chatbox.style.backgroundColor = headerColor;
+    document.querySelector('.user-message').style.color = userTextColor;
+    document.querySelector('.bot-message').style.color = botTextColor;
+    
+    // Apply background image if provided
+    if (chatbotImage) {
+        chatbox.style.backgroundImage = `url(${chatbotImage})`;
+    }
+};
