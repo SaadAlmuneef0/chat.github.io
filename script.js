@@ -113,11 +113,13 @@ window.onload = function() {
     const botTextColor = params.get('botTextColor') || '#000000';
     const chatbotImage = params.get('chatbotImage') || '';
 
-    // Apply header color
+    // Apply header color to the header
     document.querySelector('.chatbox-header').style.backgroundColor = headerColor;
 
-    // Apply text colors
+    // Apply text colors to user messages
     document.querySelectorAll('.message.user').forEach(el => el.style.color = userTextColor);
+    
+    // Apply text colors to bot messages
     document.querySelectorAll('.message.bot').forEach(el => el.style.color = botTextColor);
     
     // Apply background image if provided
